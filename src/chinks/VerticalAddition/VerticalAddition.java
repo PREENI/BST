@@ -9,47 +9,36 @@ public class VerticalAddition {
         Node left;
         Node right;
         
-        public Node (int a)
-        {
-            this.left=null;
-            this.data=a;
-            this.right=null;
+        public Node (int a) {
+            this.left = null;
+            this.data = a;
+            this.right = null;
         }
-    }
-     Node root=null;
+   }
+   
+     Node root = null;
     
-     public void push(int a)
-    {
-        root=insert(root,a);
+     public void push(int a) {
+        root = insert(root,a);
     }
     
-    public Node insert(Node root,int a)
-    {
-        if(root==null)
-        {
-            root= new Node(a);
+    public Node insert(Node root,int a) {
+        if(root == null){
+            root = new Node(a);
             return root;
         }
-               
-        else 
-        {
-            if(a<root.data)
-            {
-                root.left=insert(root.left,a);
+        else{
+            if(a < root.data) {
+                root.left = insert(root.left,a);
             }
-            else if(a>root.data)
-            {
-                root.right=insert(root.right,a);
+            else if(a > root.data) {
+                root.right = insert(root.right,a);
             }
-            
             return root;
-            
-                
-        }
+         }
     }
     
-    public void inorderrec()
-    {
+    public void inorderrec() {
         inorder(root,0);   
         System.out.println(map);   
     }
