@@ -17,8 +17,10 @@ public class VerticalAddition {
    }
    
      Node root = null;
-    
-     public void push(int a) {
+     HashMap<Integer,Integer> map=new HashMap<>();
+     int a,flag;
+     
+   public void push(int a) {
         root = insert(root,a);
     }
     
@@ -44,43 +46,30 @@ public class VerticalAddition {
     }
     
     
-    HashMap<Integer,Integer> map=new HashMap<>();
-    int a,flag;
-    
-    public void inorder(Node root,int R)
-    {
+    public void inorder(Node root,int R) {
         if(root==null)
             return ;
                        
         inorder(root.left,R-1);
-        System.out.println("r="+R);
-        if(map.get(R)==null)
-        {
+        if(map.get(R)==null) {
             a=0;      
         }
         else
             a=map.get(R);
         map.put(R,a+root.data);
-        
         inorder(root.right,R+1);
+   } 
        
-     
-    } 
-       
-    public static void main(String args[])
-    {
+    public static void main(String args[]) {
         VerticalAddition va=new VerticalAddition();
-        
         Scanner sc=new Scanner(System.in);
         int a;
         int n=sc.nextInt();
         
-        for(int i=0;i<n;++i)
-        {
+        for(int i=0;i<n;++i) {
             a=sc.nextInt();
             va.push(a);
         }
         va.inorderrec();
     }
-    
-}
+ }
